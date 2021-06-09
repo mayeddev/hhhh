@@ -12,18 +12,39 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <title>Erada Center</title>
     <style>
+      header {
+        padding: 20px 0;
+      }
       nav {
         height: 100%;
         width:  300px;
         position: fixed;
         margin-left: auto;
+        z-index: 1
       }
-      .burger {
+      nav ul li {
+        padding: 20px;
+      }
+      .bars-container {
         margin-left: auto;
       }
       nav ul {
         list-style-type:none;
         padding: 0;
+      }
+      nav a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 1);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 300ms, text-underline-offset 300ms;
+}
+
+nav a:hover {
+  text-decoration-color: rgba(0, 0, 255, 1);
+  text-underline-offset: 0.4em;
+}
+      .logo img {
+        width: 150px;
+
       }
 
       @media (min-width: 992px) {
@@ -33,21 +54,140 @@
 
         }
       }
+      .h-100 {
+        height: 100%;
+      }
+      .hero {
+  background-color: #0040C1;
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
 
+.hero__title {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 1;
+}
+
+.banner-title {
+  font-size: 50px;
+  color: #fff;
+}
+.banner-title span {
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.banner-button {
+  border: none;
+background: transparent;
+color: #fff;
+padding: 20px;
+border: 2px solid #fff;
+border-radius: 5px;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #003298;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 12s ease-in forwards infinite;
+          animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+  border-color: #0051f4;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+@-webkit-keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+article {
+  padding: 20px 0;
+}
+article h2 {
+
+}
     </style>
   </head>
   <body class="">
     <!-- Header -->
-    <header>
+    <div>
+      <header>
         <div class="container position-relative d-flex">
-            <div>
+            <div class="logo">
               <!-- Logo -->
-              <a src="/">
+              <a src="/" class="">
                 <img src="assets/logo.png" />
               </a>
             </div>
 
-            <div class="">
+            <div class="bars-container d-flex justify-content-center align-items-center">
               <!-- Menu Icon -->
               <button class="burger fas fa-bars d-lg-none"></button>
             </div>
@@ -56,20 +196,30 @@
             <nav class="d-none d-lg-block top-0 end-0 bg-white">
               <i class="close d-lg-none fa fa-window-close" aria-hidden="true"></i>
               <ul class="d-flex flex-column flex-lg-row">
-                <li><a src="/">Home</a></li>
-                <li><a src="/about">About Erada</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Erada</a></li>
               </ul>
             <nav/>
         </div>
     </header>
     <main>
       <!-- Banner -->
-      <div class="bg-secondary">
-        <div class="container">
-                  <p>More than Healthcare, Human care</p>
-                <button>Make an appointment</button>
+      <div class="hero banner">
+        <div class="container h-100">
+          <div class="vertical-center">
+                              <p class="banner-title">More than <span>Healthcare</span>,
+                                <br/>Human <span>care</span></p>
+                <button class="banner-button">Make an appointment</button>
+          </div>
         </div>
+          <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
       </div>
+    </div>
       <div class="container">
         <article>
           <h2>Lorem ipsum dolor</h2>
